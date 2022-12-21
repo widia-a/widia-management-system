@@ -9,6 +9,11 @@ import { NavBrandComponent } from './components/nav-brand/nav-brand.component';
 import { FormsModule } from '@angular/forms';
 import { DashboardPageComponent } from './pages/dashboard-page/dashboard-page.component';
 import { UserPageComponent } from './pages/user-page/user-page.component';
+import { ProductListComponent } from './pages/product-list/product-list.component';
+import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
+// import { ProductEditComponent } from './components/products/product-edit/product-edit.component';
+import { ProductFormComponent } from './components/products/product-form/product-form.component';
+import { ToasterComponent } from './components/toaster/toaster/toaster.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +21,12 @@ import { UserPageComponent } from './pages/user-page/user-page.component';
     LoginPageComponent,
     NavBrandComponent,
     DashboardPageComponent,
-    UserPageComponent
+    UserPageComponent,
+    ProductListComponent,
+    ProductDetailComponent,
+    // ProductEditComponent,
+    ProductFormComponent,
+    ToasterComponent,
   ],
   imports: [
     BrowserModule,

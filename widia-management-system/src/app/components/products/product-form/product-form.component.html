@@ -1,0 +1,74 @@
+<div class="card">
+    <!-- {{product | json}} -->
+    <h5 class="card-header" *ngIf="!product.id">New Product</h5>
+    <h5 class="card-header" *ngIf="product.id">{{ product.title }}</h5>
+
+    <ul *ngIf="product && isConfirmDelete" class="list-group list-group-flush">
+        <li class="list-group-item">
+            Anda yakin mau menghapus data <strong>{{product.title}}</strong>
+        </li>
+        <li class="list-group-item">
+            <button (click)="onDelete()" class="btn btn-danger">Yes</button>
+            <button (click)="isConfirmDelete = false"  class="btn btn-primary ms-3">No</button>
+        </li>
+    </ul>
+
+    <ul *ngIf="!isConfirmDelete" class="list-group list-group-flush">
+        <li class="list-group-item">
+            <div class="mb-3">
+                <label for="" class="form-label">
+                    Title
+                </label>
+                <input [(ngModel)]="product.title" type="text" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">
+                    Description
+                </label>
+                <input [(ngModel)]="product.description" type="text" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">
+                    Price
+                </label>
+                <input [(ngModel)]="product.price" type="number" class="form-control">
+            </div>
+        </li>
+
+        <li (click)="showToggle()" *ngIf="!showMore" class="list-group-item">More</li>
+        <li (click)="showToggle()" *ngIf="showMore" class="list-group-item">Hide</li>
+        
+        <li *ngIf="showMore" class="list-group-item">
+            <div class="mb-3">
+                <label for="" class="form-label">
+                    Discount
+                </label>
+                <input [(ngModel)]="product.discountPercentage" type="number" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">
+                    Stock
+                </label>
+                <input [(ngModel)]="product.stock" type="number" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">
+                    Brand
+                </label>
+                <input [(ngModel)]="product.brand" type="text" class="form-control">
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div class="mb-3 mt-3" *ngIf="!product.id">
+                <button (click)="onCreate()" class="btn btn-primary">Save</button>
+            </div>
+            <div class="mb-3 mt-3" *ngIf="product.id">
+                <button (click)="onUpdate()" class="btn btn-primary">Update</button>
+                <button (click)="cancel()"  class="btn btn-warning ms-3">Cancel</button>
+                <button (click)="isConfirmDelete = true" class="btn btn-danger ms-3">Delete</button>
+            </div>
+        </li>
+
+    </ul>
+    
+</div>
