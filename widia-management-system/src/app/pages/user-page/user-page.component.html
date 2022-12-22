@@ -1,1 +1,42 @@
-<p>user-page works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <app-user-form #uf [user]="user"></app-user-form>
+        </div>
+        <div class="col-md-9">
+            <div *ngIf="users.length === 0" class="card">
+                <h5 class="card-header">User</h5>
+                <div class="card-body">
+                    <h5 class="card-title">Belum ada data User</h5>
+                </div>
+            </div>
+            <div *ngIf="users.length > 0" class="card">
+                <h5 class="card-header">User</h5>
+                <div class="card-body">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Full Name</th>
+                                <th>Age</th>
+                                <th>Gender</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Birthdate</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let u of users" (click)="uf.setuser(u)">
+                                <th>{{ u.firstName }} {{ u.lastName }}</th>
+                                <th>{{ u.age }}</th>
+                                <th>{{ u. gender }}</th>
+                                <th>{{ u.email }}</th>
+                                <th>{{ u.phone }}</th>
+                                <th>{{ u.birthDate }}</th>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

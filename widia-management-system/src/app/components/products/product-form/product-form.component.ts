@@ -11,7 +11,7 @@ import { ToasterService } from 'src/app/services/toaster.service';
 export class ProductFormComponent implements OnInit {
 
   showMore: boolean = false;
-  showToast: boolean = false;
+  showToast: boolean = false; 
   isConfirmDelete: boolean = false;
   
   @Input()
