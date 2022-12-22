@@ -1,7 +1,10 @@
-<div class="navbar bg-dark navbar-dark mb-5">
+<nav class="navbar bg-dark navbar-dark mb-5">
     <div class="container-fluid">
         <a href="" class="navbar-brand">
             <img src="assets/globe.svg" alt="logo" width="30px" height="14px" class="d-inline-block"> Management System
         </a>
+        <div *ngIf="isLoggedin()" class="d-flex">
+            <button (click)="onLogout()" class="btn btn-outline-light">Logout</button>
+        </div>
     </div>
-</div>
+</nav>
